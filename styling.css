@@ -1,0 +1,23 @@
+.headpart{
+	color: white;
+	font-size: 40px;
+	text-align: center;
+	height: 55px;
+	background-color: #000033;
+	border-radius: 10px;
+}
+.sideBar{
+			margin-top: 5px;
+			border-radius: 10px;
+			background-color: #000033;
+			float: left;
+			/*min-height:600px;*/
+			height: 600px;
+			width:screen-width;
+			/*margin-top: 5%;*/
+}
+
+#head{
+	color: white;
+}
+

@@ -1,0 +1,362 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fun",
+				"function"
+			],
+			[
+				"get",
+				"getevent"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"bac",
+				"background-color\tproperty"
+			],
+			[
+				"di",
+				"div_element"
+			],
+			[
+				"met",
+				"meta\tTag"
+			],
+			[
+				"d",
+				"document"
+			],
+			[
+				"inn",
+				"inner_span_elements"
+			],
+			[
+				"sc",
+				"script"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"margi",
+				"margin-bottom\tproperty"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"TEXT",
+				"text-align\tproperty"
+			],
+			[
+				"clas",
+				"class_num"
+			],
+			[
+				"t",
+				"t_name"
+			],
+			[
+				"cla",
+				"class_num"
+			],
+			[
+				"class_nu",
+				"class_number"
+			],
+			[
+				"for",
+				"form\tTag"
+			],
+			[
+				"mar",
+				"margin-top\tproperty"
+			],
+			[
+				"padd",
+				"padding-top\tproperty"
+			],
+			[
+				"hED",
+				"header\tTag"
+			],
+			[
+				"h",
+				"h1\tTag"
+			],
+			[
+				"pad",
+				"padding-top\tproperty"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"border",
+				"border-radius\tproperty"
+			],
+			[
+				"l",
+				"legend\tTag"
+			],
+			[
+				"align",
+				"text-align\tproperty"
+			],
+			[
+				"anima",
+				"animation-duration\tproperty"
+			],
+			[
+				"animation",
+				"animation-name\tproperty"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"bor",
+				"border-collapse\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"col",
+				"color\tproperty"
+			],
+			[
+				"co",
+				"color\tproperty"
+			],
+			[
+				"al",
+				"align-self\tproperty"
+			],
+			[
+				"bg",
+				"background-color\tproperty"
+			],
+			[
+				"max",
+				"max-width\tproperty"
+			],
+			[
+				"hea",
+				"header\tTag"
+			],
+			[
+				"te",
+				"text-align\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/xampp/htdocs/Find Guru/timetable_teacher.php",
+		"/C/xampp/htdocs/Find Guru/teacher_display.php",
+		"/C/xampp/htdocs/Find Guru/search_teach.php",
+		"/C/xampp/htdocs/Find Guru/class_timetable.php",
+		"/C/xampp/htdocs/php pages/sty.js",
+		"/C/Users/Udayasri/Desktop/test.js",
+		"/C/Users/Udayasri/Desktop/New Text Document.html",
+		"/C/Users/Udayasri/Desktop/events.js",
+		"/C/xampp/htdocs/php pages/logins.php",
+		"/C/Users/Udayasri/Desktop/hello.html",
+		"/C/Users/Udayasri/Desktop/ES 6/Source-Basic-types/00_types.js",
+		"/D/xampp/htdocs/php pages/logins.php",
+		"/D/xampp/htdocs/php pages/viewclass.php",
+		"/D/xampp/htdocs/php pages/updatetb.php",
+		"/D/xampp/htdocs/php pages/addteacher.php",
+		"/D/xampp/htdocs/php pages/teacher list.php",
+		"/D/xampp/htdocs/php pages/register.php",
+		"/D/xampp/htdocs/php pages/classno.php",
+		"/D/xampp/htdocs/php pages/search.php",
+		"/D/xampp/htdocs/php pages/exmple.php",
+		"/D/xampp/htdocs/php pages/login.php",
+		"/C/Users/Udayasri/Music/my project/chatbyDB.php",
+		"/D/xampp/htdocs/exmple.php",
+		"/C/Users/Udayasri/Music/my project/chatbyfiles.php",
+		"/C/Users/Udayasri/Music/my project/cono.php",
+		"/C/Users/Udayasri/Music/my project/notess.txt",
+		"/C/Users/Udayasri/Music/my project/chat page.html",
+		"/C/Users/Udayasri/Music/my project/login.php",
+		"/C/Users/Udayasri/Desktop/phppages/second.php",
+		"/C/Users/Udayasri/Desktop/phppages/login1.php",
+		"/C/Users/Udayasri/Desktop/phppages/chat.php",
+		"/C/Users/Udayasri/Music/my project/task.html",
+		"/C/Users/Udayasri/Music/my project/admin home page.html",
+		"/C/Users/Udayasri/Music/my project/example.html"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "login.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 207.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
