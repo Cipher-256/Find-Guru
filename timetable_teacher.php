@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="styling.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<title></title>
+		<title>teacher timetable</title>
 	</head>
 <body style="background-color: lightgray;">
 <div class="container" style="height: 653px;background-color: white;padding: 0px;">	
@@ -30,7 +30,7 @@
 			<b style="font-size: 20px;">Enter The Require Details to Proceed....!</b>
 			<br>
 			<b style="float: left;padding: 10px;padding-left: 50px;">Note:</b>
-			<p style="float: left; padding: 10px">Here you can register the new <b>Teachers</b> in the college.</p>
+			<p style="float: left; padding: 10px">Display <b>Teacher</b> timetable.</p>
 	</div>
 		<br><br>
 		<br><br>
@@ -39,7 +39,17 @@
 		<fieldset class="col" style="padding: 35px; ">
 			<form action="" method="POST">
 		<input type="text" name="tname" placeholder="enter  teacher name"><br><br>
-		<input type="text" name="day" placeholder="enter the day"><br><br>
+		<label>select day </label>
+			<select name='day'>
+			<option value='monday'>monday</option>
+			<option value='tuesday'>tuesday</option>
+			<option value='wednesday'>wednesday</option>
+			<option value='thursday'>thursday</option>
+			<option value='friday'>friday</option>
+			<option value='saturday'>saturday</option>
+			<option value="all">all </option>
+			</select><br><br>
+		<!-- <input type="text" name="day" placeholder="enter the day"><br><br> -->
 		<input type="submit" name="search" value ="search"><br><br>	
 			</form>
 		</fieldset>
@@ -59,61 +69,70 @@
 				$con=new mysqli($servername,$username,$pw,$mydb);
 				$conn=new mysqli($servername,$username,$pw,$day);
 
-				$sql="SELECT tid from teacher_table where name='$tname' ";
+				$sql="SELECT * from teacher_table where name like'%$tname%' ";
 				$res=$con->query($sql);
-				$row=$res->fetch_assoc();
-				
-				$tid=$row['tid'];
-				// echo $tid."<br><br>";
-				$sql="SELECT sid,sname,rid from sub_teach_sec_room where tid='$tid'";
-				$res=$con->query($sql);
-				// echo "<table border=2><tr>";
-				
+				if($res->num_rows==0)
+				{
+					echo "search failed";
+					die("");
+				}
 				while($row=$res->fetch_assoc())
 				{
-
-					$sid=$row['sid'];
-					// echo $sid."<br><br>";
-					$secname=$row['sname'];
-					$rid=$row['rid'];
-					//echo $secname;
-					// echo $secname."<br><br>";
-					$sql1="SELECT sname from sub_table where sid='$sid'";
-					$res1=$con->query($sql1);
-					$row1=$res1->fetch_assoc();
-					$subname=$row1['sname'];
-					//echo $subname."<br><br>";
-					
-					$sql2="SELECT * from sec_period where sname='$secname'";
-					$result=$conn->query($sql2);
-					$row2=$result->fetch_assoc();
-					//echo $row2['sname'];
-					//$x=3;
-					//echo $row2['p'.$x];
-					for($i=1;$i<=8;$i++)
-					{
-						
-						if(strtoupper($row2['p'.$i])==strtoupper($subname))
-						{
-							//echo $row2['p'.$i]."<br><br>";
-						//	echo "<td>".$day;
-							$arr['p'.$i]=array(strtoupper($subname),$secname);
-							//echo "<td>". "p".$i."     ".$secname."   ".$subname."	".$rid."</td>";
-						}
-					}
-					
-				}
-				if(!empty($arr))
-				{	ksort($arr);
-					foreach($arr as $k=>$v)
-					{				echo "<tr><td>".$k."	";
-						foreach($v as $v1)
-						echo $v1."	";
-					echo "</td>";
-					} 
-				}
 				
-				echo "</tr></table></div>";
+					$tid=$row['tid'];
+					$teacher_name=$row['name'];
+					// echo $tid."<br><br>";
+					$sql="SELECT sid,sname,rid from sub_teach_sec_room where tid='$tid'";
+					$res=$con->query($sql);
+					// echo "<table border=2><tr>";
+					
+					while($row=$res->fetch_assoc())
+					{
+
+						$sid=$row['sid'];
+						// echo $sid."<br><br>";
+						$secname=$row['sname'];
+						$rid=$row['rid'];
+						//echo $secname;
+						// echo $secname."<br><br>";
+						$sql1="SELECT sname from sub_table where sid='$sid'";
+						$res1=$con->query($sql1);
+						$row1=$res1->fetch_assoc();
+						$subname=$row1['sname'];
+						//echo $subname."<br><br>";
+						
+						$sql2="SELECT * from sec_period where sname='$secname'";
+						$result=$conn->query($sql2);
+						$row2=$result->fetch_assoc();
+						//echo $row2['sname'];
+						//$x=3;
+						//echo $row2['p'.$x];
+						for($i=1;$i<=8;$i++)
+						{
+							
+							if(strtoupper($row2['p'.$i])==strtoupper($subname))
+							{
+								//echo $row2['p'.$i]."<br><br>";
+							//	echo "<td>".$day;
+								$arr['p'.$i]=array(strtoupper($subname),$secname);
+								//echo "<td>". "p".$i."     ".$secname."   ".$subname."	".$rid."</td>";
+							}
+						}
+						
+					}
+					if(!empty($arr))
+					{	echo "<b>".$teacher_name."</b>";
+						ksort($arr);
+						foreach($arr as $k=>$v)
+						{				echo "<tr><td>".$k."	";
+							foreach($v as $v1)
+							echo strtoupper($v1)."	";
+						echo "</td>";
+						} 
+					}
+					return $arr;
+					echo "</tr></table></div>";
+			}
 		}
 		$servername="localhost";
 		$username="root";
@@ -133,8 +152,16 @@
 				
 				$day=$_POST['day'];
 				
-				if($day!=NULL)
-					daytb($servername,$username,$pw,$day,$tname);
+				if($day!="all")
+				{
+					$value=daytb($servername,$username,$pw,$day,$tname);
+					if(empty($value))
+					{
+						echo "<p align='center'><strong >no results found</strong></p>";
+					}
+
+				}
+
 				else
 				{ 
 					daytb($servername,$username,$pw,"monday",$tname);

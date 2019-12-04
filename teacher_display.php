@@ -4,6 +4,15 @@
 	<head>
 	<meta charset="utf-8">
 	<title>Find Guru</title>
+	<style type="text/css">
+		
+		div.menu
+		{
+			display: inline-block;
+			 width: auto;
+			min-height: 200px;
+		}
+	</style>
 	</head>
 	
 	<body>
@@ -19,26 +28,28 @@
 			<option value='all'>all</option>
 		</select><br><br><br>
 		<input type="submit" name="search" value="search"><br><br> 
+		<a href="logout.php">logout</a>
 	</form>
 
 	<?php 
 
 		function daytb($servername,$username,$pw,$day)
 		{
+				echo "<div class='menu'><table border=1>";
 				$tid=$_SESSION['tid'];
 				$arr=array();
-		 		echo "<tr>";
-		 		echo "<td>".$day."</td>";
+		 	
+		 		echo "<th>".$day."</th>";
 				$mydb="phpprojects";
 				$con=new mysqli($servername,$username,$pw,$mydb);
 				$conn=new mysqli($servername,$username,$pw,$day);
-				$sql="SELECT sid,sname,rid from sub_teach_sec where tid='$tid'";
+				$sql="SELECT sid,sname,rid from sub_teach_sec_room where tid='$tid'";
 				$res=$con->query($sql);
 				while($row=$res->fetch_assoc())
 				{
 
 					$sid=$row['sid'];
-					$rid=$row['rid']
+					$rid=$row['rid'];
 					$secname=$row['sname'];
 					$sql1="SELECT sname from sub_table where sid='$sid'";
 					$res1=$con->query($sql1);
@@ -61,38 +72,47 @@
 				if(!empty($arr))
 				{	ksort($arr);
 					foreach($arr as $k=>$v)
-					{				echo "<td>".$k."	";
+					{				echo "<tr><td>".$k."	";
 						foreach($v as $v1)
 						echo $v1."	";
 					echo "</td>";
 					} 
 				}
 				
-				echo "</tr>";
+				
+				echo "</tr></table></div>";
 		}
 		
 		$servername="localhost";
 		$username="root";
 		$pw="";
 		$mydb="phpprojects";
-		if(isset($_POST['search']))
-		{	
-				$day=$_POST['day'];
-				echo "<table border=1>";
-				if($day!="all")
-					daytb($servername,$username,$pw,$day);
-				else
-				{ 
-					
-					daytb($servername,$username,$pw,"monday");
-					daytb($servername,$username,$pw,"tuesday");
-					daytb($servername,$username,$pw,"wednesday");
-					daytb($servername,$username,$pw,"thursday");
-					daytb($servername,$username,$pw,"friday");
-					daytb($servername,$username,$pw,"saturday");
+		if(isset($_SESSION['tid']))
+		{
+			if(isset($_POST['search']))
+			{	
+					$day=$_POST['day'];
+					// echo "<table border=1>";
+					if($day!="all")
+						daytb($servername,$username,$pw,$day);
+					else
+					{ 
+						
+						daytb($servername,$username,$pw,"monday");
+						daytb($servername,$username,$pw,"tuesday");
+						daytb($servername,$username,$pw,"wednesday");
+						daytb($servername,$username,$pw,"thursday");
+						daytb($servername,$username,$pw,"friday");
+						daytb($servername,$username,$pw,"saturday");
 
-				}
-				echo "</table>";		
+					}
+					// echo "</table>";		
+			}
+		}
+		else
+		{
+			echo "session has expired";
+
 		}
 
 	?>

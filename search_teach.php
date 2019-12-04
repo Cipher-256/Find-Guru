@@ -31,7 +31,7 @@
 			<b style="font-size: 20px;">Enter The Require Details to Proceed....!</b>
 			<br>
 			<b style="float: left;padding: 10px;padding-left: 50px;">Note:</b>
-			<p style="float: left; padding: 10px">Here you can register the new <b>Teachers</b> in the college.</p>
+			<p style="float: left; padding: 10px">Search  <b>Teacher</b></p>
 	</div>
 		<br><br>
 		<br><br>
@@ -40,9 +40,29 @@
 		<fieldset class="col" style="padding: 35px; ">
 
 			<form method="POST" action="" >
-				<input type="text" name="day" placeholder="enter the day"><br><br>
-				<input type="text" name="tname" placeholder="enter teacher name"><br><br>
-				<input type="text" name="pnumber" placeholder="enter period number"><br><br>
+				<!-- <input type="text" name="day" placeholder="enter the day"><br><br> -->
+			<label>select day </label>
+			<select name='day'>
+			<option value='monday'>monday</option>
+			<option value='tuesday'>tuesday</option>
+			<option value='wednesday'>wednesday</option>
+			<option value='thursday'>thursday</option>
+			<option value='friday'>friday</option>
+			<option value='saturday'>saturday</option>
+			</select><br><br><br>
+				<input type="text" name="tname" placeholder="enter teacher name" required><br><br>
+				<label> select the period number</label>
+				<select name="pnumber">
+					<option value=1>9:30AM-10:30AM <b>(P1)</b></option>
+					<option value=2>10:30AM-11:20AM <b>(P2)</b></option>
+					<option value=3>11:20AM-12:10PM <b>(P3)</b></option>
+					<option value=4>12:10PM-1:00PM <b>(P4)</b></option>
+					<option value=5>1:00PM-1:50PM <b>(P5)</b></option>
+					<option value=6>1:50PM-2:40PM <b>(P6)</b></option>
+					<option value=7>2:40PM-3:30PM <b>(P7)</b></option>
+					<option value=8>3:30PM-4:30PM <b>(P8)</b></option>
+				</select>
+				<!-- <input type="text" name="pnumber" placeholder="enter period number"><br><br> -->
 				<input type="submit" name="search" value="search">
 			</form>
 		</fieldset>
@@ -55,7 +75,7 @@
 			$pw="";
 			$mydb="phpprojects";
 			$con=new mysqli($servername,$username,$pw,$mydb);
-			$flag="not found in any class";
+			
 			//echo "helllooooo";
 
 			if(isset($_POST['search']))
@@ -63,56 +83,60 @@
 				
 				$teachername=$_POST['tname'];
 				//echo $teachername;
-				$sql = "SELECT tid from teacher_table where name='$teachername'";
+				$sql = "SELECT * from teacher_table where name like '%$teachername%'";
 				//	echo "hellloooo";
-				$res=$con->query($sql);
+				$resx=$con->query($sql);
 				
-				if($res->num_rows==0)
-					echo "enter the correct details "."<br><br>";
-				else
+				if($resx->num_rows==0)
 				{
-					$row=$res->fetch_assoc();
-					$tid=$row['tid'];
-					// echo $tid;
-						//foreach($row as $key=> $value)
-							//echo $tid."<br>";
-							// $tid=$value;
-							//echo $tid
+					echo "<p align='center'><strong >enter the correct values</strong></p>";
+					die("");
 				}
 
-				$pn=$_POST['pnumber'];
-				$sql="SELECT sid,sname,rid from sub_teach_sec_room where tid='$tid'";
-				$res=$con->query($sql);
-
-				while($row=$res->fetch_assoc())
+				while($rowx=$resx->fetch_assoc())
 				{
-					$subid=$row['sid'];
-					$rid=$row['rid'];
-					// echo "<br><br>".$subid;
-					$sec=$row['sname'];
-					// echo "<br><br>".$sec;
-					$mydb=$_POST['day'];
-					// echo "<br><br>".$mydb;
-					$con1=  new mysqli($servername,$username,$pw,$mydb);
-					$sql = "SELECT * from sec_period where sname='$sec'";
-					$res1=$con1->query($sql);
-					$row1=$res1->fetch_assoc();
-					$var='p'."$pn";
-					// echo "<br><br>".$var;
-					$sub=$row1[$var];
-					// echo "<br><br>".$sub;
-					$mydb="phpprojects";
-					$con=  new mysqli($servername,$username,$pw,$mydb);
-					$sql="SELECT sid from sub_table where sname='$sub'";
-					$result=$con->query($sql);
-					$r=$result->fetch_assoc();
-					$subid1=$r['sid'];
-					// echo "<br><br>".$subid;
-					if($subid==$subid1)
-						$flag="found in section ".$sec.$rid;
+					 $flag="not found in any class";
+					// print_r($rowx);
 
-			}
-			echo $flag;
+					$tid=$rowx['tid'];
+					$tname=$rowx['name'];
+						
+
+					$pn=$_POST['pnumber'];
+					$sql="SELECT sid,sname,rid from sub_teach_sec_room where tid='$tid'";
+					$res=$con->query($sql);
+
+					while($row=$res->fetch_assoc())
+					{
+						$subid=$row['sid'];
+						$rid=$row['rid'];
+						// echo "<br><br>".$subid;
+						$sec=$row['sname'];
+						// echo "<br><br>".$sec;
+						$mydb=$_POST['day'];
+						// echo "<br><br>".$mydb;
+						$con1=  new mysqli($servername,$username,$pw,$mydb);
+						$sql = "SELECT * from sec_period where sname='$sec'";
+						$res1=$con1->query($sql);
+						$row1=$res1->fetch_assoc();
+						$var='p'."$pn";
+						// echo "<br><br>".$var;
+						$sub=$row1[$var];
+						// echo "<br><br>".$sub;
+						$mydb="phpprojects";
+						$con=  new mysqli($servername,$username,$pw,$mydb);
+						$sql="SELECT sid from sub_table where sname='$sub'";
+						$result=$con->query($sql);
+						$r=$result->fetch_assoc();
+						$subid1=$r['sid'];
+						// echo "<br><br>".$subid;
+						if($subid==$subid1)
+							$flag=$tname."  found in section "."<b>".$sec."</b><b> ".$rid." </b><br><br>";
+
+					}			
+				
+			echo $tname." ".strtoupper($flag)."<br><br>";
+				}
 			}	
 		?>
 	</body>
