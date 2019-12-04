@@ -35,9 +35,14 @@
 	<div class="row">
 		<div class="col"></div>
 		<fieldset class="col" style="padding: 35px; ">
-			<form method="POST" enctype="multipart/form-data">
-				<input type="file" name="file" style="border:1px solid black;width: 220px;"><br><br>
-				<input type="submit" name ="submit" value="submit">
+			<form method="POST" enctype="multipart/form-data" style="text-align: center;">
+				<div class="custom-file mb-3">
+  				    <input type="file" class="custom-file-input" id="customFile" name="file" onchange="updatevalue()">
+ 				    <label class="custom-file-label" id="elem"for="customFile"
+ 				    style="text-align: left;">Choose file</label>
+   				</div>
+				<!-- <input type="file" name="file" style="border:1px solid black;width: 220px;"><br><br> -->
+				<input type="submit" class="btn btn-secondary" name ="submit" value="submit">
 			</form>
 		</fieldset>
 		<div class="col"></div>
@@ -120,4 +125,13 @@
 	?>
 </div>
 </body>
+<script>
+// Add the following code if you want the name of the file appear on select
+var element= document.getElementById("elem");
+var filenamE = document.getElementById("customFile");
+function updatevalue(){
+	var filename=filenamE.value.split("\\").pop();
+	element.innerHTML=filename;
+}
+</script>
 </html>

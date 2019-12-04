@@ -30,17 +30,17 @@
 			<b style="font-size: 20px;">Enter The Require Details to Proceed....!</b>
 			<br>
 			<b style="float: left;padding: 10px;padding-left: 50px;">Note:</b>
-			<p style="float: left; padding: 10px">Here you can register the new <b>Teachers</b> in the college.</p>
+			<p style="float: left; padding: 10px">Here you can know perticular <b>Teacher</b> time table.</p>
 	</div>
 		<br><br>
 		<br><br>
 	<div class="row">
 		<div class="col"></div>
-		<fieldset class="col" style="padding: 35px; ">
+		<fieldset class="col" style="padding: 35px; text-align: center;">
 			<form action="" method="POST">
-		<input type="text" name="tname" placeholder="enter  teacher name"><br><br>
-		<input type="text" name="day" placeholder="enter the day"><br><br>
-		<input type="submit" name="search" value ="search"><br><br>	
+		<input class="form-control" type="text" name="tname" placeholder="enter  teacher name"><br>
+		<input class="form-control" type="text" name="day" placeholder="enter the day"><br>
+		<input class="btn btn-secondary" type="submit" name="search" value ="search"><br>
 			</form>
 		</fieldset>
 		<div class="col"></div>

@@ -19,6 +19,7 @@
 			<option value='all'>all</option>
 		</select><br><br><br>
 		<input type="submit" name="search" value="search"><br><br> 
+		<a href="logout.php">logout<a>
 	</form>
 
 	<?php 

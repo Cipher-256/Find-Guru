@@ -38,11 +38,11 @@
 	<div class="row">
 		<div class="col"></div>
 		<fieldset class="col" style="padding: 35px; ">
-			<form method="POST" class="col">
-			<input type="text" name="subject" placeholder="enter subject name">
-			<br><br>
-			<input type="text" name="teacher" placeholder="enter teacher name"><br><br>
-			<input type="submit" name="submit" value="submit">
+			<form method="POST" class="col" style=" text-align:center;">
+			<input class="form-control"type="text" name="subject" placeholder="enter subject name">
+			<br>
+			<input class="form-control" type="text" name="teacher" placeholder="enter teacher name"><br>
+			<input class="btn btn-secondary" type="submit" name="submit" value="submit">
 			</form>
 		</fieldset>
 		<div class="col"></div>
