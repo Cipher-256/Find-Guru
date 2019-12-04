@@ -38,7 +38,7 @@
 			<div class="col"></div>
 			<fieldset class="col" style="padding: 35px; ">
 			<form action="" method="POST" enctype="multipart/form-data">
-			<input type="text" name="sec" placeholder="enter section name" align="center">
+			<input type="text" name="sec" placeholder="enter section name" align="center" required>
 			<br><br>
 			<input type="file" name="file" align="left" style="border:1px solid black;width: 220px;">
 			<br><br>
@@ -68,7 +68,10 @@
 			$section=$_POST['sec'];
 			$inputfilename=$_FILES['file']['tmp_name'];
 			// $exceldata=array();
-
+			$sql="SELECT sname from section_table where sname='$section' ";
+			$res=$conn->query($sql);
+			if($res->num_rows==0)
+				die( "<p align='center'><strong >enter the correct values</strong></p>");
 			try
 			{
 				$inputfiletype=PHPExcel_IOFactory::identify($inputfilename);
@@ -80,7 +83,9 @@
 
 			catch(Exception $e)
 			{
-				die('error loading file "'.pathinfo($inputfilename,PATHINFO_BASENAME).'":'.$e->getMessage());
+					// die('error loading file "'.pathinfo($inputfilename,PATHINFO_BASENAME).'":'.$e->getMessage());
+					echo "<script>alert('either file is not uploaded or uploaded file is not valid ')</script>"	;
+					die("");	
 			}
 
 

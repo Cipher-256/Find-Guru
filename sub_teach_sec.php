@@ -28,7 +28,7 @@
 			<b style="font-size: 20px;">Enter The Require Details to Proceed....!</b>
 			<br>
 			<b style="float: left;padding: 10px;padding-left: 50px;">Note:</b>
-			<p style="float: left; padding: 10px">Here you can assign a teacher for a class for a perticular subject.</p>
+			<p style="float: left; padding: 10px">Here you can assign a teacher to a class for a particular subject.</p>
 	</div>
 		<br><br>
 		<br><br>
@@ -36,7 +36,7 @@
 		<div class="col"></div>
 		<fieldset class="col" style="padding: 35px; ">
 			<form method="POST" enctype="multipart/form-data">
-				<input type="file" name="file" style="border:1px solid black;width: 220px;"><br><br>
+				<input type="file" name="file" style="border:1px solid black;width: 220px;" accept=".xlsx,.xls"><br><br>
 				<input type="submit" name ="submit" value="submit">
 			</form>
 		</fieldset>
@@ -72,8 +72,9 @@
 
 			catch(Exception $e)
 			{
-				die('error loading file "'.pathinfo($inputfilename,PATHINFO_BASENAME).'":'.$e->getMessage());
-
+				// die('error loading file "'.pathinfo($inputfilename,PATHINFO_BASENAME).'":'.$e->getMessage());
+				echo "<script>alert('either file is not uploaded or uploaded file is not valid')</script>";
+				die("");
 			}
 
 
@@ -114,9 +115,9 @@
 						echo "error insertion";
 					}
 			}			
-		}		
-		$con->close()
-
+		
+		// $con->close();
+}
 	?>
 </div>
 </body>

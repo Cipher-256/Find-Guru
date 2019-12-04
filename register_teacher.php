@@ -38,9 +38,9 @@
 		<div class="col"></div>
 		<fieldset class="col" style="padding: 35px; ">
 			<form method="POST">
-			<input type="text" name="tid" placeholder="id">
-			<br><br><input type="text" name="uname" placeholder="username"><br><br>
-			<input type="text" name="password" placeholder="password"   ><br><br>
+			<input type="text" name="tid" placeholder="id" required>
+			<br><br><input type="text" name="uname" placeholder="username" required><br><br>
+			<input type="text" name="password" placeholder="password"   required><br><br>
 			<input type="submit" name="submit" value="submit">
 			</form>
 		</fieldset>

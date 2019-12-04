@@ -49,7 +49,7 @@
 			<b style="font-size: 20px;">Enter The Require Details to Proceed....!</b>
 			<br>
 			<b style="float: left;padding: 10px;padding-left: 50px;">Note:</b>
-			<p style="float: left; padding: 10px">Here you can register the new <b>Teachers</b> in the college.</p>
+			<p style="float: left; padding: 10px">Select a  <b>Class </b>to view its timetable.</p>
 	</div>
 		<br><br>
 		<br><br>
@@ -57,7 +57,7 @@
 		<div class="col"></div>
 		<fieldset class="col" style="padding: 35px; ">
 			<form method="POST">
-			<input type="text" name="class" placeholder="enter class name"><br><br>
+			<input type="text" name="class" placeholder="enter class name" required><br><br>
 			<!-- <input type="text" name="day" placeholder="enter day"><br><br> -->
 			<label>select day </label>
 			<select name='day'>
@@ -74,7 +74,11 @@
 		</fieldset>
 		<div class="col"></div>
 	<?php 
-		function display($mydb,$sname)
+	function nafun()
+	{
+		echo "<table><td>NA</td><td>NA</td><tr><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr></table>";
+	}
+	function display($mydb,$sname)
 		{
 			$servername="localhost";
 			$username="root";
@@ -83,6 +87,12 @@
 			$con=new mysqli($servername,$username,$pw,$mydb);
 			$sql= "SELECT * from sec_period where sname='$sname'";
 			$res=$con->query($sql);
+			if($res->num_rows==0)
+			{
+				echo "<script>alert('enter a valid section name')</script>";
+				nafun();
+				die("");
+			}
 			$row=$res->fetch_assoc();
 			echo "<table border=1>";
 			echo "<tr>";
@@ -110,7 +120,7 @@
 					$result=$conn->query($sql);
 					$row1=$result->fetch_assoc();
 					$tname=$row1['name'];
-					echo "<td>[<b>" .$subject ."</b>]<br>".$tname."<br><b>".$rid."<b></td>";
+					echo "<td>[<b>" .strtoupper($subject) ."</b>]<br>".strtoupper($tname)."<br><b>".strtoupper($rid)."<b></td>";
 				}
 
 				

@@ -25,6 +25,7 @@
 			<a class="btn btn-primary" href="search_teach.php"><b>Search teacher</b></a><br><br><br>
 			<a class="btn btn-primary" href="timetable_teacher.php"><b>Display teacher timetable </b></a><br><br><br>
 		</div>
+	
 	</div>
 	<div style="text-align: center;padding-top: 20px;">
 			<b style="font-size: 20px;">Enter The Require Details to Proceed....!</b>
@@ -39,9 +40,9 @@
 		<div class="col"></div>
 		<fieldset class="col" style="padding: 35px; ">
 			<form method="POST" class="col">
-			<input type="text" name="subject" placeholder="enter subject name">
+			<input type="text" name="subject" placeholder="enter subject name" required>
 			<br><br>
-			<input type="text" name="teacher" placeholder="enter teacher name"><br><br>
+			<input type="text" name="teacher" placeholder="enter teacher name" required><br><br>
 			<input type="submit" name="submit" value="submit">
 			</form>
 		</fieldset>
@@ -74,7 +75,7 @@
 			}
 			else
 			{
-				echo "enter correct values";
+				echo "<p align='center'><strong >enter the correct values</strong></p>";
 			}
 		}
 	?>

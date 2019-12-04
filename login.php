@@ -35,8 +35,8 @@
 					<div class="col"></div>
 					<fieldset class="col"style="width:40%;">
 						<legend style=""><b>Login Details</b></legend>
-						<b>Username:</b><input class="inputo" type="text" name="userid"  placeholder="Enter the User_Id" ><br><br>	
-						<b>Password :</b><input class="inputo" type="password" name="password" placeholder="Enter the Password"><br><br>
+						<b>Username:</b><input class="inputo" type="text" name="userid"  placeholder="Enter the User_Id"  required><br><br>	
+						<b>Password :</b><input class="inputo" type="password" name="password" placeholder="Enter the Password" required><br><br>
 						<!-- <input type="submit" name="login" value="login"> -->
 						<input type="radio" name="loginas" value="teacher"><b>Teacher</b>
 						<input type="radio" name="loginas" value="admin"><b>Admin</b>
